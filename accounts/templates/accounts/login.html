@@ -1,0 +1,39 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1 class="mt-5 text-center">Bienvenido a nuestro login page</h1>
+<div class="d-flex justify-content-center">
+
+
+    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">Iniciar sesión</div>
+        <div class="card-body">
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <h2>Used está logeado como {{ user.username }}</h2>
+            <a href="{% url 'logout' %}">Cerrar sesión</a>
+            <a href="{% url 'index' %}">Volver a inicio</a>
+            {% else %}
+            <form action="" class="mb-3" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-success" type="submit">Iniciar sesión</button>
+            </form>
+            {% endif %}
+            <p>No tiene una cuenta? regístrese <span> <a href="{% url 'registrar_usuario' %}">acá</a></span></p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

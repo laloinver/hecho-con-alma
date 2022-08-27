@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Post: {{ post.title }}</h1>
+
+    <div class="text-center">
+
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ post.imagen.url }}" class="img-fluid" alt="Imagen del post">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p>{{ post.content }}</p>
+            <p>Número de visitas al post: {{ post.views_number }}</p>
+        </div>
+        
+    </div>
+    <a href="{% url 'post_list' %}" class="btn btn-primary">Volver</a>
+    <a href="{% url 'comment_create' post.id %}" class="btn btn-primary">Comentar</a>
+    <hr>
+    {% for comment in post.comments.all %}
+    <div class="row">
+        <div class="col-md-6">
+            <p>{{ comment.content }}</p>
+            <p>{{ comment.user.username }}</p>
+            <p>Fecha: {{ comment.created_at }}</p>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="container">
+            {% if request.user == comment.user %}
+                <p>Soy el dueño {{ request.user }}</p>
+                <a href="{% url 'comment_update' comment.id %}" class="btn btn-primary">Editar comentario</a>
+                <a href="{% url 'comment_delete' comment.id %}" class="btn btn-danger">Borrar comentario</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}

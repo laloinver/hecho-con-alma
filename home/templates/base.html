@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    {% endblock %} {% block extracss %} {% endblock %}
+    <style>
+        body {
+            /* background-color: #64868A; */
+            background-color: #85cbcb;
+        }
+
+        a {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    {% block menu %}
+
+    <nav class="navbar navbar-expand-sm" style="background-color: #e3f6f6">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static '/img/logo-vector.svg' %}" width="30" height="30" class="d-inline-block align-top"
+                    alt="" />
+                Hechos Con Alma
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'post_list' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quíenes somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Objetivos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Proyectos</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Colabora con nosotros</a>
+                    </li>
+
+                    <li class="nav-item">
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout' %}" class="btn" style="background-color: #85cbcb">
+                            Cerrar sesión
+                        </a>
+                        {% else %}
+                        <a href="{% url 'login' %}" class="btn" style="background-color: #85cbcb">
+                            Iniciar sesión
+                        </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-sm" style="background-color: #e3f6f6">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li>
+                        <a class="dropdown-item" href="#">Taller de Acompañamiento</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Huerta Agrocológica</a></li>
+                    <li><a class="dropdown-item" href="#">Productos de Limpieza</a></li>
+                    <li><a class="dropdown-item" href="#">Radio</a></li>
+                    <li><a class="dropdown-item" href="#">Comedor y merendero</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %} {% block content %}
+    <div class="container">
+        <h1>Página de inicio por defecto: {{ user }}</h1>
+    </div>
+    {% endblock %} {% block footer %} {% endblock %} {% block javascripts %}
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    {% endblock %} {% block extrajs %} {% endblock %}
+</body>
+
+</html>
