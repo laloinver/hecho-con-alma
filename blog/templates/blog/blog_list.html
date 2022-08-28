@@ -3,25 +3,29 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="my-3 text-center">Lista de posts</h1>
-
-    {% for post in posts %}
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card">
-            <img src="{{ post.imagen.url }}" class="card-img-top" alt="Imagen del post">
+    <div class="row justify-content-center gx-5 mt-4">
+      {% for post in posts %}
+        <div class="sm-col-12 col-lg-5">
+          <div class="card mb-3 shadow" style="max-width: 540px; background-color: #f7f7f7; border: none;">
+            <div class="d-flex align-items-center" >
+              <img src="{{ post.imagen.url }}"  style="object-fit: cover; width: 100%; max-height:150px;" alt="...">
+            </div>
             <div class="card-body">
               <h5 class="card-title">{{ post.title }}</h5>
-              <p class="card-text">{{ post.content }}</p>
-            </div>
+              <p class="card-text">{{ post.content | truncatechars:140 }}
+              <div class="card-text"><small class="text-muted">{{ post.created_at }}</small></div></p>
+              <div class="btn-group mb-1 fs-6 border border-white">
+                <a href="{% url 'post_detail' post.id %}" class="btn btn-primary" style="background-color: #0b96a0;">Seguir leyendo</a>
+                {% if request.user.is_authenticated %}
+                  <a href="{% url 'post_update' post.id %}" class="btn btn-primary" style="background-color: #0b96a0;">Editar</a>                  
+                  <a href="{% url 'post_delete' post.id %}" class="btn btn-primary" style="background-color: #0b96a0;">Borrar</a>                  
+                {% endif %}
+              </div>
+            </div>            
           </div>
-        </div>
-      </div>
-      {% if request.user.is_authenticated %}
-        <a class="btn btn-primary" href="{% url 'post_update' post.id %}">Editar Post</a>
-        <a class="btn btn-danger" href="{% url 'post_delete' post.id %}">Borrar Post</a>
-      {% endif %}
-      <a class="btn btn-success" href="{% url 'post_detail' post.id %}">Ver Post</a>
-    {% endfor %}
+        </div>        
+        
+      {% endfor %}
+    </div>
 </div>
 {% endblock %}
