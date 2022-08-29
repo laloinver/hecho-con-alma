@@ -26,7 +26,7 @@ def login_view(request):
                 messages.info(request, 'Credenciales inválidas')
         else:
             messages.error(request, 'Hay errores en el formulario')
-    return render(request, 'accounts/login.html', {'form': form})
+    return render(request, 'accounts/login2.html', {'form': form})
 
 def logout_view(request):
     logout(request)
