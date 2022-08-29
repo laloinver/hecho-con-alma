@@ -17,7 +17,7 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <a class="btn btn-primary" type="submit" style="background-color: #0b96a0;">Guardar</a>
+                        <button class="btn btn-primary" type="submit" style="background-color: #0b96a0;">Guardar</button>
                         <a href="{% url 'post_list' %}" class="btn btn-secondary">Cancelar</a>
                     </form>
                 </div>
