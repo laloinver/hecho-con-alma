@@ -2,8 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
-    <h1 class="text-center">Post: {{ post.title }}</h1>
+<div class="container p-3">
+    <h4 class="text-center">{{ post.title }}</h4>
 
     <div class="text-center">
 
@@ -11,29 +11,28 @@
             <div class="col-md-6">
                 <img src="{{ post.imagen.url }}" class="img-fluid" alt="Imagen del post">
             </div>
-        </div>
-        <div class="col-md-6">
-            <p>{{ post.content }}</p>
-            <p>Número de visitas al post: {{ post.views_number }}</p>
+            <div class="col-md-6">
+                <p>{{ post.content }}</p>
+                <p>Número de visitas al post: {{ post.views_number }}</p>
+                <a href="{% url 'comment_create' post.id %}" class="btn btn-primary" style="background-color: #0b96a0;">Comentar</a>
+                <a href="{% url 'post_list' %}" class="btn btn-secondary">Volver</a>
+            </div>
         </div>
         
     </div>
-    <a href="{% url 'post_list' %}" class="btn btn-primary">Volver</a>
-    <a href="{% url 'comment_create' post.id %}" class="btn btn-primary">Comentar</a>
     <hr>
     {% for comment in post.comments.all %}
     <div class="row">
         <div class="col-md-6">
-            <p>{{ comment.content }}</p>
-            <p>{{ comment.user.username }}</p>
-            <p>Fecha: {{ comment.created_at }}</p>
+            <h6>{{ comment.user.username }}</h6>
+            <p>{{ comment.content }}</p>            
+            <small class="text-muted">Fecha: {{ comment.created_at }}</small>
         </div>
         {% if request.user.is_authenticated %}
         <div class="container">
             {% if request.user == comment.user %}
-                <p>Soy el dueño {{ request.user }}</p>
-                <a href="{% url 'comment_update' comment.id %}" class="btn btn-primary">Editar comentario</a>
-                <a href="{% url 'comment_delete' comment.id %}" class="btn btn-danger">Borrar comentario</a>
+                <a href="{% url 'comment_update' comment.id %}" class="btn btn-primary btn-sm">Editar comentario</a>
+                <a href="{% url 'comment_delete' comment.id %}" class="btn btn-danger btn-sm">Borrar comentario</a>
             {% endif %}
         </div>
         {% endif %}
