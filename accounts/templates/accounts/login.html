@@ -22,7 +22,7 @@
             {% if user.is_authenticated %}
             <h2>Used está logeado como {{ user.username }}</h2>
             <a href="{% url 'logout' %}">Cerrar sesión</a>
-            <a href="{% url 'index' %}">Volver a inicio</a>
+            <a href="{% url 'post_list' %}">Volver a inicio</a>
             {% else %}
             <form action="" class="mb-3" method="post">
                 {% csrf_token %}

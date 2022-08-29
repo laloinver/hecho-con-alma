@@ -21,7 +21,7 @@ def login_view(request):
                 login(request, user)
                 user.login_number += 1
                 user.save()
-                return redirect('index')
+                return redirect('post_list')
             else:
                 messages.info(request, 'Credenciales inválidas')
         else:
@@ -30,7 +30,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('index')
+    return redirect('post_list')
 
 def registrar_usuario(request):
     form = SignUpForm()
