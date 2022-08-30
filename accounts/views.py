@@ -40,4 +40,4 @@ def registrar_usuario(request):
             new_user = form.save()
             messages.success(request, f'Usuario {new_user.username} creado!')
             return redirect('login')
-    return render(request, 'accounts/register.html', {'form': form})
+    return render(request, 'accounts/register2.html', {'form': form})

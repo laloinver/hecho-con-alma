@@ -26,7 +26,7 @@
 <body>
     {% block menu %}
 
-    <nav class="navbar navbar-expand-sm" style="background-color: #e3f6f6">
+    <nav id="navbar_top" class="navbar navbar-expand-sm navbar-fixed-top" style="background-color: #e3f6f6">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">
                 <img src="{% static '/img/logo-vector.svg' %}" width="30" height="30" class="d-inline-block align-top"
@@ -92,9 +92,14 @@
     <div class="container">
         <h1>Página de inicio por defecto: {{ user }}</h1>
     </div>
-    {% endblock %} {% block footer %} {% endblock %} {% block javascripts %}
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}
+    {% block javascripts %}
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    {% endblock %} {% block extrajs %} {% endblock %}
+    {% endblock %}
+    {% block extrajs %}
+    {% endblock %}
 </body>
 
 </html>
