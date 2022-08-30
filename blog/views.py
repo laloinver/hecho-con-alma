@@ -111,4 +111,4 @@ def comment_update(request, pk):
         if form.is_valid():
             form.save()
             return redirect('post_detail', pk=comment.post.pk)
-    return render(request, 'blog/comment_edit.html', context)
+    return render(request, 'blog/comment_update.html', context)
