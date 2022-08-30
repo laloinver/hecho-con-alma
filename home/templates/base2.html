@@ -47,7 +47,12 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
         <div class="w3-bar w3-white w3-card" id="myNavbar">
-            <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+            <!-- <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a> -->
+            <a href="{% url 'index' %}" class="w3-bar-item w3-button w3-wide">
+                <img src="{% static '/img/logo-vector.svg' %}" width="28" height="28" class="d-inline-block align-top"
+                    alt="" />
+                Hecho Con Alma
+            </a>
             <!-- Right-sided navbar links -->
             <div class="w3-right w3-hide-small">
                 <a href="#about" class="w3-bar-item w3-button">Quiénes Somos</a>
@@ -55,7 +60,8 @@
                 <a href="#work" class="w3-bar-item w3-button"> Proyectos</a>
                 <a href="#pricing" class="w3-bar-item w3-button"> Colabora con nosotros</a>
                 <a href="{% url 'post_list' %}" class="w3-bar-item w3-button"> Blog</a>
-                <a href="{% url 'login' %}" class="w3-bar-item w3-button"> Iniciar Sesión</a>
+                <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-teal"> Iniciar Sesión</a>
+                <!-- <a href="{% url 'login' %}" class="btn btn-primary"> Iniciar Sesión</a> -->
             </div>
             <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
