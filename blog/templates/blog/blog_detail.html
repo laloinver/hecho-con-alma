@@ -18,6 +18,7 @@
                 <a href="{% url 'post_list' %}" class="btn btn-secondary">Volver</a>
             </div>
         </div>
+        <a href="{% url 'category_detail' post.category.slug %}">{{post.category.name}}</a>
         
     </div>
     <hr>

@@ -1,0 +1,8 @@
+<h1>{{category_detail.name}}</h1>
+<div>
+    {% for post in category_detail.posts.all %}
+        <h1>{{post.title}}</h1>
+        <!-- {% block content2 %}
+        {% endblock %} -->
+    {% endfor %}
+</div>
