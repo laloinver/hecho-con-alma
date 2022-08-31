@@ -138,3 +138,11 @@ def category_create(request):
 def category_detail(request, any):
     category = get_object_or_404(Category, slug=any)
     return render(request, 'blog/category_detail.html', {'category_detail': category})
+
+def category_list(request):
+
+    categories = Category.objects.all()
+
+    print(categories.query)
+
+    return render(request, 'blog/category_list.html', {'categories': categories,})

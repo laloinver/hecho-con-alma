@@ -1,0 +1,15 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block content3 %}
+    <div style="margin-top:100px;">
+        {% if request.user.is_staff %}
+        <div class="w3-bar">
+            <a   href="{% url 'category_create' %}"><button class="w3-bar-item w3-button w3-teal w3-padding-small">Nueva categoría</button></a>
+        </div>
+         {% endif %}
+        {% for category in categories %}
+            <h2>{{ post.category.name }}</h2>
+        {% endfor %}
+    </div>
+{% endblock %}

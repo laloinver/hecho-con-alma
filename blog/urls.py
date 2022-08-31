@@ -13,4 +13,5 @@ urlpatterns = [
     path('comments/<int:pk>/edit/', views.comment_update, name='comment_update'),
     path('category/add/', views.category_create, name='category_create'),
     path('category/<slug:any>', views.category_detail, name='category_detail'),
+    path('category/', views.category_list, name='category_list'),
 ]
