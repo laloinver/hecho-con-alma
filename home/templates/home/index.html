@@ -1,8 +1,268 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
+{% load static %}
 
-{% block content %}
-<div class="container">
-    <p>Número de visitas globales: {{ statistic.number_of_visits }}</p>
-    <p>Número de logins: {{ login_number }}</p>
+{% block content3%}
+
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+        <span class="w3-jumbo w3-hide-small ">Hecho Con Alma</span><br>
+        <span class="w3-large">No es por vista, es por FE.</span>
+        <p><a href="#about"
+                class="w3-button w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off w3-teal">Leer
+                más sobre nosotros</a></p>
+    </div>
+    <div class="w3-display-bottomleft w3-text-grey w3-xxlarge" style="padding:24px 48px">
+        <a href="https://www.facebook.com/Hechos-con-Alma-106138340788976" style="text-decoration: none;">
+            <i class="fa fa-facebook-official w3-hover-opacity w3-text-teal"></i>
+        </a>
+        <a href="https://www.instagram.com/hechocon_alma/" style="text-decoration: none;">
+            <i class="fa fa-instagram w3-hover-opacity w3-text-teal"></i>
+        </a>
+    </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+    <h3 class="w3-center">Sobre la organización</h3>
+    <p class="w3-center w3-large">"Hecho con Alma" esta formado por personas con la convicción de que el camino es
+        el amor y que es necesario ver al prójimo con los ojos de Dios, de esa manera se puede lograr una
+        transformación tanto en el que brinda ayuda como en el que la recibe.</p>
+    <p class="w3-center w3-large">
+        Ayudar, acompañar y trasmitir la fe a personas en situación de vulnerabilidad.
+        Con el propósito de contribuir a la formación de ciudadanos más empáticos y comprometidos con la comunidad.
+    </p>
+
+
+    <!-- Team Section -->
+    <div class="w3-container" style="padding:16px" id="team">
+        <!-- <h3 class="w3-center">Nuestro Equipo</h3>
+        <p class="w3-center w3-large">Quiénes dirigen el barco</p> -->
+        <div class="w3-row-padding w3-grayscale " style="margin-top:64px">
+            <div class="w3-col l4 m6 w3-margin-bottom ">
+                <div class="w3-card w3-white">
+                    <!-- <img src="/w3images/team2.jpg" alt="John" style="width:100%"> -->
+                    <div class="w3-container">
+                        <h3>Rodolfo Damián Insaurralde,</h3>
+                        <p class="w3-opacity">Presidente</p>
+                        <p>Presidente y fundador de Hecho con alma.</p>
+                        <p><button class="w3-button w3-teal w3-block"><i class="fa fa-envelope"></i>
+                                Contacto</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l4 m6 w3-margin-bottom">
+                <div class="w3-card w3-white">
+                    <!-- <img src="/w3images/team1.jpg" alt="Jane" style="width:100%"> -->
+                    <div class="w3-container">
+                        <h3>Arévalo José Migue</h3>
+                        <p class="w3-opacity">Secretario</p>
+                        <p>Primer secretario de la fundación.</p>
+                        <p><button class="w3-button w3-teal w3-block"><i class="fa fa-envelope"></i>
+                                Contacto</button></p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l4 m6 w3-margin-bottom">
+                <div class="w3-card w3-white">
+                    <!-- <img src="/w3images/team3.jpg" alt="Mike" style="width:100%"> -->
+                    <div class="w3-container">
+                        <h3>Santiago Christian Gabriel,</h3>
+                        <p class="w3-opacity">Tesorero</p>
+                        <p>Responsable de la administración de ingresos.</p>
+                        <p><button class="w3-button w3-teal w3-block"><i class="fa fa-envelope"></i>
+                                Contacto</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+
+
+<!-- Our Objetives - "We know design" -->
+
+<div class="w3-container w3-teal" style="padding:128px 16px" id="objetives">
+    <div class="w3-row-padding">
+        <div class="w3-col m6">
+            <h3>Nuestos Objetivos.</h3>
+            <p> Nuestra misión es llevar la palabra de Dios, transmitir la fe a través de las obras y así sentir la
+                presencia de su amor tomando conciencia de la maravilla de su Creación, viviendo en armonía, respeto y
+                honra a la naturaleza, realizando huertas agroecológicas y vivencias al aire libre con grupos
+                Boy-scouts.</p>
+            <p>
+                Qeremos crear un espacio de contención y superación destinada a niños y adolescentes más vulnerables de nuestra
+                comunidad de Gral. San Martin, Chaco con acompañamiento del grupo familiar.
+            </p>
+            <p>
+                Realizamos diversos eventos recreativos y culturales, que propendan a la mayor
+                integración entre los miembros de la comunidad especialmente vulnerable,
+                reforzando los lazos de solidaridad y cooperación.
+            </p>
+            <p><a href="#projects" class="w3-button w3-white"><i class="fa fa-th"> </i> Ver nuestos proyectos</a></p>
+        </div>
+
+
+        <!-- <div class="w3-col m6">
+
+            <div class="w3-content w3-display-container" style="max-width:800px; max-height: 600px; overflow: hidden;">
+                <img class="mySlides" src="{% static '/img/hca6.jpg' %}" style="width:100%; max-height: 100%;">
+                <img class="mySlides" src="{% static '/img/hca2.jpg' %}" style="width:100%; max-height:100%;">
+                <img class="mySlides" src="{% static '/img/hca3.jpg' %}" style="width:100%; max-height:100%;">
+                <img class="mySlides" src="{% static '/img/hca4.jpg' %}" style="width:100%; max-height: 100%;">
+                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+                    style="width:100%">
+                    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="w3-col m6">
+
+        </div>
+        <div class="w3-content w3-display-container" style="max-width:800px; max-height: 600px; overflow: hidden;">
+
+            <div class="w3-display-container mySlides">
+                <img src="{% static '/img/hca6.jpg' %}" style="width:100%">
+                <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-white">
+                    Fundación
+                </div>
+            </div>
+
+            <div class="w3-display-container mySlides">
+                <img src="{% static '/img/hca2.jpg' %}" style="width:100%">
+                <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-white">
+                    Reuniones al aire libre
+                </div>
+            </div>
+
+            <div class="w3-display-container mySlides">
+                <img src="{% static '/img/hca3.jpg' %}" style="width:100%">
+                <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-white">
+                    Comedor infantil
+                </div>
+            </div>
+
+            <div class="w3-display-container mySlides">
+                <img src="{% static '/img/hca4.jpg' %}" style="width:100%">
+                <div class="w3-display-topright w3-large w3-container w3-padding-16 w3-white">
+                    Radio
+                </div>
+            </div>
+
+            <div class="w3-display-container mySlides">
+                <img src="{% static '/img/hca7.jpg' %}" style="width:100%">
+                <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-white">
+                    Merendero
+                </div>
+            </div>
+
+
+            <div class="w3-display-container mySlides">
+                <img src="{% static '/img/hca9.jpg' %}" style="width:100%">
+                <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-white">
+                    Música
+                </div>
+            </div>
+
+            <div class="w3-display-container mySlides">
+                <img src="{% static '/img/hca8.jpg' %}" style="width:100%">
+                <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-white">
+                    Productos
+                </div>
+            </div>
+            <button class="w3-button w3-display-left w3-white" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-display-right w3-white" onclick="plusDivs(1)">&#10095;</button>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Projects Section -->
+<div class="w3-container w3-white" style="padding:128px 16px" id="projects">
+    <h3 class="w3-center">Nuestros Proyectos</h3>
+    <p class="w3-center w3-large">Qué queremos hacer por las personas</p>
+
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+        <div class="w3-quarter">
+            <!-- <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i> -->
+            <i class="bx bxs-leaf w3-margin-bottom w3-jumbo w3-center w3-text-teal"></i>
+            <p class="w3-large">Huerta Agroecológica</p>
+            <p>Trabajamos en la producción de una huerta agroecológica en el Hogar de Ancianos local. Lo producido será
+                para
+                consumo del mismo hogar y para aportar ayuda a merenderos de la ciudad.</p>
+        </div>
+        <div class="w3-quarter">
+            <i class="fa fa-heart w3-margin-bottom w3-jumbo w3-text-teal"></i>
+            <p class="w3-large">Taller de Acompañamiento</p>
+            <p>
+                Llevamos adelante talleres dirigidos a personas en proceso de duelo, con el propósito de generar redes
+                de contención para que logren trascender el dolor.</p>
+            </p>
+        </div>
+        <div class="w3-quarter">
+            <i class="bx bxs-spray-can w3-margin-bottom w3-jumbo w3-text-teal"></i>
+            <p class="w3-large">Productos De Limpieza</p>
+            <p>Producimos y vendemos productos de limpieza como un servicio a la comunidad con el fin de generar
+                ingresos para sostener otros proyectos, solventar ayudas solidarias y producir puestos de trabajo.</p>
+        </div>
+        <div class="w3-quarter">
+            <i class='bx bxs-bowl-hot w3-margin-bottom w3-jumbo w3-text-teal'></i>
+            <p class="w3-large">Comedor y Merendero</p>
+            <p>Trabajamos con merenderos de la ciudad, no sólo ayudando en la proporción de alimentos sino
+                también generando talleres que se conviertan en espacios recreativos, educativos y de acompañamiento.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+
+        <div class="w3-quarter">
+            <i class='bx bxs-radio w3-magin-bottom w3-jumbo w3-text-teal'></i>
+            <p class="w3-large">Radio</p>
+            <p>
+                Por medio de espacios radiales abrirnos a toda la comunidad, para que conociendo las actividades de la
+                fundación se sumen a nuestro proyecto.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-teal" style="padding:128px 16px" id="contact-whit-us">
+    <h3 class="w3-center">Colabora con nosotros</h3>
+    <p class="w3-center w3-large">Ayudanos a conseguir nuestros sueños.</p>
+    <div style="margin-top:48px">
+        <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right w3-text-white"></i> Calle Ayacucho Nº430, Gral.
+            José de San Martín, Chaco.-</p>
+        <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right w3-text-white"></i> Phone: 3725-455384</p>
+        <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right w3-text-white"> </i> Email: mail@mail.com</p>
+        <br>
+        <form action="/action_page.php" target="_blank">
+            <p><input class="w3-input w3-border" type="text" placeholder="Nombre" required name="Nombre"></p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Asunto" required name="Asunto"></p>
+            <p><textarea class="w3-input w3-border" type="text" placeholder="Mensaje" required
+                    name="Mensaje"></textarea>
+            <p>
+                <button class="w3-button w3-white" type="submit">
+                    <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                </button>
+            </p>
+        </form>
+    </div>
+</div>
+
+
 {% endblock %}

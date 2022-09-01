@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>{% block title %}{% endblock %}</title>
     {% block stylesheets %}
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
@@ -64,6 +68,19 @@
     {% endblock %}
 
     {% block footer %}
+    <footer class="w3-center w3-white w3-padding-64">
+        <a href="{% url 'index' %}" class="w3-button w3-teal"><i class="fa fa-arrow-up w3-margin-right"></i>Ir a inicio</a>
+        <div class="w3-xxlarge w3-section">
+            <!-- <i class='bx bxl-facebook w3-hover-opacity w3-text-teal'></i>
+            <i class="fa fa-instagram w3-hover-opacity w3-text-teal"></i> -->
+            <!-- <i class="fa fa-whatsapp w3-hover-opacity"></i>
+                    <i class="fa fa-youtube w3-hover-opacity"></i> -->
+        </div>
+        <!-- <p>Creado por Grupo 2 <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                        class="w3-hover-text-green">w3.css</a></p> -->
+
+        <p>Creado por Grupo 2</p>
+    </footer>
     {% endblock %}
 
     {% block javascripts %}

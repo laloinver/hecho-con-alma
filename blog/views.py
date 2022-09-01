@@ -1,16 +1,26 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .forms import PostForm
+from .forms import CategoryForm, PostForm
+from django.db.models import Q
 
-from .models import Post, Comments
+from .models import Category, Post, Comments
 from .forms import CommentForm
 
 # Create your views here.
 
 def post_list(request):
-    posts = Post.objects.all()
+    search_post = request.GET.get('search_any')
+
+    if search_post:
+        # posts = Post.objects.filter(title__icontains=search_post)
+        # posts = Post.objects.filter(category__name__icontains=search_post)
+        posts = Post.objects.filter(Q(title__icontains=search_post)|Q(category__name__icontains=search_post))
+    else:
+        posts = Post.objects.all()
+
     print(posts.query)
-    return render(request, 'blog/blog_list.html', {'posts': posts})
+
+    return render(request, 'blog/blog_list.html', {'posts': posts,})
 
 def post_create(request):
     user = request.user
@@ -35,7 +45,6 @@ def post_create(request):
         return render(request, 'blog/blog_create.html', {'form': form})
     else:
         return redirect('post_list')
-    endif
 
 def post_update(request, pk):
     user = request.user
@@ -57,7 +66,7 @@ def post_update(request, pk):
         return render(request, 'blog/blog_update.html', {'form': form, 'post': post})
     else:
         return redirect('post_list')
-    endif
+
 
 def post_delete(request, pk):
     user = request.user
@@ -112,3 +121,28 @@ def comment_update(request, pk):
             form.save()
             return redirect('post_detail', pk=comment.post.pk)
     return render(request, 'blog/comment_update.html', context)
+
+
+def category_create(request):
+    form = CategoryForm()
+    
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    return render(request, 'blog/category_create.html', {'category': form})
+
+
+def category_detail(request, any):
+    category = get_object_or_404(Category, slug=any)
+    return render(request, 'blog/category_detail.html', {'category_detail': category})
+
+def category_list(request):
+
+    categories = Category.objects.all()
+
+    print(categories.query)
+
+    return render(request, 'blog/category_list.html', {'categories': categories,})
