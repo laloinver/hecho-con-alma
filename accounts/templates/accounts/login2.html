@@ -3,19 +3,19 @@
 {% load static %}
 
 {% block content %}
-<section class="h-100 gradient-form" style="background-color: #eee;">
+<section class="gradient-form" style="background-color: #eee; height: 100vh;" id="begin">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-10">
+            <div class="col-xl-5">
                 <div class="card rounded-3 text-black">
                     <div class="row g-0">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="card-body p-md-5 mx-md-4">
 
                                 <div class="text-center">
                                     <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" -->
                                     <img src="{% static '/img/logo2.jpg' %}" style="width: 185px;" alt="logo">
-                                    <h4 class="mt-1 mb-5 pb-1">Hechos Con Alma</h4>
+                                    <h4 class="mt-1 mb-5 mt-4 pb-1">Hecho Con Alma</h4>
                                 </div>
 
                                 <form action="" class="" method="post">
@@ -23,17 +23,8 @@
                                     {{ form|crispy }}
                                     <p>Ingresa tu usuario y contraseña</p>
 
-                                    <!-- <div class="form-outline mb-4">
-                                        <input type="text" id="form2Example11" class="form-control"
-                                            placeholder="Usuario" />
-                                    </div>
-
-                                    <div class="form-outline mb-4">
-                                        <input type="password" id="form2Example22" class="form-control" placeholder="Contraseña"/>
-                                    </div> -->
-
                                     <div class="d-grid gap-2 text-center pt-1 mb-5 pb-1">
-                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                        <button class="w3-button w3-teal btn-block mb-3"
                                             type="submit" style="border: none;">Ingresar</button>
                                         <a class="text-muted" href="#!">Olvidaste tu contraseña?</a>
                                     </div>
@@ -41,14 +32,14 @@
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">No tienes una cuenta?</p>
                                         <a type="button" href="{% url 'registrar_usuario' %}"
-                                            class="btn btn-outline-success">Registrate ahora!</a>
+                                            class="w3-button w3-teal">Registrate ahora!</a>
                                     </div>
 
                                 </form>
 
                             </div>
                         </div>
-                        <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                        <!-- <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                             <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                                 <h4 class="mb-4">Somos más que una fundación</h4>
                                 <p class="small mb-0">
@@ -57,7 +48,7 @@
                                     en quien ayuda como en quien recibe eso.
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
