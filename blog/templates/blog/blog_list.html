@@ -4,61 +4,164 @@
 
 {% block content2 %}
 
-<div class="w3-col l8 s12 mt-5">
-    <!-- Blog entry -->
-    <div class="row">
-        <div class="col-lg-6">
-            {% if request.user.is_staff %}
-            <div class="w3-bar">
-                <a   href="{% url 'post_create' %}"><button class="w3-bar-item w3-button w3-teal w3-padding-small">Nuevo post</button></a>
-                <a  href="{% url 'category_list' %}"><button class="w3-bar-item w3-button w3-black w3-padding-small">Categorías</button></a>
+<div class="w3-row">
+
+    <div class="w3-col l8 mt-5">
+        <!-- Blog entry -->
+        <div class="w3-row w3-margin-bottom">
+            <div class="w3-col l12 w3-left">
+                <form class="" action="" method="get">
+                    <div class="w3-col l6">
+                        <input class="w3-input w3-border" type="search" name="search_post" id="search-post"
+                            placeholder="Noticia">
+                    </div>
+                    <div class="w3-col l2">
+                        <button type="submit" class="w3-button w3-teal w3-margin-left ">Buscar</button>
+                    </div>
+
+                    <div class="w3-col l4 " >
+                        {% if request.user.is_staff %}
+                        <div class="w3-right">
+                            <a href="{% url 'post_create' %}" class=" w3-button w3-teal">
+                                Nuevo post
+                            </a>
+                            <a href="{% url 'category_list' %}" class=" w3-button w3-blue ">
+                                Categorias
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </form>
             </div>
-             {% endif %}
-        </div>
-        <div class="col-lg-6">
-            <form action="" method="get">
-                <input type="search" name="search_any" id="">
-                <button type="submit">Buscar</button>
-            </form>
-        </div>
-    </div>
-   
-    
-    {% for post in posts %}
 
-    <div class="w3-card-4 w3-margin w3-white pb-3" style="max-height: 500px;">
-        <img src="{{ post.imagen.url }}" alt="Nature" style="width:100%; max-height: 250px; object-fit: cover;">
-        <div class="w3-container">
-            <h3><b>{{ post.title }}</b></h3>
-            <h6><span class="w3-opacity">{{ post.created_at }}</span></h6>
         </div>
 
-        <div class="w3-container">
 
-            <p class="card-text">{{ post.content | truncatechars:140 }}
+        {% for post in posts %}
 
-            <div class="w3-row">
-                <div class="w3-col m8 s12">
-                    <a href="{% url 'post_detail' post.id %}" class="w3-button w3-padding-large w3-white w3-border"
-                        style="background-color: #0b96a0;">Seguir leyendo</a>
+        <div class="w3-card-4 w3-white pb-3" style="max-height: 500px;">
+            <img src="{{ post.imagen.url }}" alt="Nature" style="width:100%; max-height: 250px; object-fit: cover;">
+            <div class="w3-container">
+                <h3><b>{{ post.title }}</b></h3>
+                <h6><span class="w3-opacity">{{ post.created_at }}</span></h6>
+            </div>
 
-                    {% if request.user.is_staff %}
+            <div class="w3-container">
+
+                <p class="card-text">{{ post.content | truncatechars:140 }}
+
+                <div class="w3-row">
+                    <div class="w3-col m8 s12">
+                        <a href="{% url 'post_detail' post.id %}" class="w3-button w3-padding-large w3-white w3-border"
+                            style="background-color: #0b96a0;">Seguir leyendo</a>
+
+                        {% if request.user.is_staff %}
                         <a href="{% url 'post_update' post.id %}" class="w3-button w3-padding-large w3-white w3-border"
                             style="background-color: #0b96a0;">Editar</a>
                         <a href="{% url 'post_delete' post.id %}" class="w3-button w3-padding-large w3-white w3-border"
                             style="background-color: #0b96a0;">Borrar</a>
-                    {% endif %}
+                        {% endif %}
+                    </div>
+                    <div class="w3-col m4 w3-hide-small">
+                        <p><span class="w3-padding-large w3-right"><b>Visitas  </b> <span
+                                    class="w3-tag">{{post.views_number}}</span></span>
+                        </p>
+                    </div>
                 </div>
-                <div class="w3-col m4 w3-hide-small">
-                    <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span>
-                    </p>
-                </div>
+
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+
+    </div>
+
+    <div class="w3-col l4 mt-5">
+
+        <!-- About Card -->
+        <div class="w3-card w3-margin w3-margin-top">
+            <img src="{% static '/img/blog1.jpg' %}" style="width:100%">
+            <div class="w3-container w3-white">
+                <h4><b>Al lector</b></h4>
+                <p>
+                    Nuestro diario en línea donde presentamos posts de actividades, eventos, pensamientos o creencias a
+                    la
+                    comunidad. Sientente bienvenido a leer nuestras historias.
+                </p>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Posts -->
+        <div class="w3-card w3-margin">
+            <div class="w3-container w3-padding">
+                <h4>Popular Posts</h4>
             </div>
 
+            <ul class="w3-ul w3-hoverable w3-white">
+
+                {% for post in posts %}
+                <li class="w3-padding-16">
+                    <a href="{% url 'post_detail' post.id %}">
+                        <img src="{{ post.imagen.url }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                    </a>
+                    <span class="w3-large">{{ post.title }}</span><br>
+                    <span>{{ post.created_at }}</span>
+                </li>
+                {% endfor %}
+
+            </ul>
         </div>
+        <hr>
+
+        <!-- Labels / tags -->
+        <div class="w3-card w3-margin">
+            <div class="w3-container w3-padding">
+                <h4>Tags</h4>
+            </div>
+            <div class="w3-container w3-white">
+                <p>
+                    <a href="#">
+                        <span class="w3-tag w3-black w3-margin-bottom">Viajes</span>
+                    </a>
+
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Eventos</span>
+                    </a>
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Radio</span>
+                    </a>
+
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Comedor</span>
+                    </a>
+
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Música</span>
+                    </a>
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Huerta</span>
+                    </a>
+
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Granja</span>
+                    </a>
+
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Familia</span>
+                    </a>
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Limpieza</span>
+                    </a>
+                    <a href="#">
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Acompañamiento</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <!-- END Introduction Menu -->
     </div>
-    <hr>
-    {% endfor %}
 
 </div>
 

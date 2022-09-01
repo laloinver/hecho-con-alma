@@ -12,8 +12,8 @@
             <h3 class="text-center">{{ post.title }}</h3>
             <p>{{ post.content }}</p>
             <p>Número de visitas al post: {{ post.views_number }}</p>
-            <a href="{% url 'comment_create' post.id %}" class="btn btn-primary" style="background-color: #0b96a0;">Comentar</a>
-            <a href="{% url 'post_list' %}" class="btn btn-secondary">Volver</a>
+            <a href="{% url 'comment_create' post.id %}" class="w3-button w3-teal" style="background-color: #0b96a0;">Comentar</a>
+            <a href="{% url 'post_list' %}" class="w3-button w3-blue">Volver</a>
 
             {% comment %} Comentarios {% endcomment %}
             <hr>

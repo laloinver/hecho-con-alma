@@ -13,7 +13,10 @@
                     <div class="row g-0">
                         <div class="col-xl-12">
                             <div class="card-body p-md-5 text-black">
-                                <h3 class="mb-5 text-uppercase">Registro de usuario</h3>
+                                <div class="text-center">
+                                    <img src="{% static '/img/logo2.jpg' %}" style="width: 185px;" alt="logo">
+                                    <h3 class="mb-5 text-uppercase mt-4">Unete a nuestra comunidad</h3>
+                                </div>
                                 <div class="">
                                     <div class="form-outline">
                                         <form action="" method="post">
@@ -21,13 +24,16 @@
                                             {{ form|crispy }}
                                             <div class="d-flex ">
                                                 <div class="pt-3">
-                                                    <a href="{% url 'login' %}" type="button" class="w3-button w3-red">Volver atrás</a>
+                                                    <a href="{% url 'login' %}" type="button"
+                                                        class="w3-button w3-red">Volver atrás</a>
                                                 </div>
-                                            <div class="d-flex justify-content-end pt-3">
-                                                <!-- <button type="reset" class="btn btn-warning btn-lg">Restablecer</button> -->
-                                                <button type="reset" class="w3-button w3-blue ms-3">Restablecer</button>
-                                                <button type="submit" class="w3-button w3-teal ms-3">Confirmar</button>
-                                            </div>
+                                                <div class="d-flex justify-content-end pt-3">
+                                                    <!-- <button type="reset" class="btn btn-warning btn-lg">Restablecer</button> -->
+                                                    <button type="reset"
+                                                        class="w3-button w3-blue ms-3">Restablecer</button>
+                                                    <button type="submit"
+                                                        class="w3-button w3-teal ms-3">Confirmar</button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
