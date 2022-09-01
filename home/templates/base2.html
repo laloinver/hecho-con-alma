@@ -41,6 +41,22 @@
         .w3-bar .w3-button {
             padding: 16px;
         }
+
+        .mySlides {
+            display: none
+        }
+
+        .w3-left,
+        .w3-right,
+        .w3-badge {
+            cursor: pointer
+        }
+
+        .w3-badge {
+            height: 13px;
+            width: 13px;
+            padding: 0
+        }
     </style>
 </head>
 
@@ -60,7 +76,7 @@
             <div class="w3-right w3-hide-small">
                 <a href="#about" class="w3-bar-item w3-button w3-hover-teal">Quiénes Somos</a>
                 <a href="#objetives" class="w3-bar-item w3-button w3-hover-teal"> Objetivos</a>
-                <a href="#team" class="w3-bar-item w3-button w3-hover-teal"> Equipo</a>
+                <!-- <a href="#team" class="w3-bar-item w3-button w3-hover-teal"> Equipo</a> -->
                 <a href="#projects" class="w3-bar-item w3-button w3-hover-teal"> Proyectos</a>
                 <a href="#contact-whit-us" class="w3-bar-item w3-button w3-hover-teal"> Colabora con nosotros</a>
                 <a href="{% url 'post_list' %}" class="w3-bar-item w3-button w3-hover-teal"> Blog</a>
@@ -73,7 +89,7 @@
                 {% endif %}
                 <!-- <a href="{% url 'login' %}" class="btn btn-primary"> Iniciar Sesión</a> -->
             </div>
-            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+           <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
             <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
                 onclick="w3_open()">
@@ -89,7 +105,7 @@
             ×</a>
         <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Quiénes somos</a>
         <a href="#objetives" onclick="w3_close()" class="w3-bar-item w3-button">Objetivos</a>
-        <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">Equipo</a>
+        <!-- <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">Equipo</a> -->
         <a href="#projects" onclick="w3_close()" class="w3-bar-item w3-button">Proyectos</a>
         <a href="#contact-whit-us" onclick="w3_close()" class="w3-bar-item w3-button">Colabora con nosotros</a>
         <a href="{% url 'post_list' %}" onclick="w3_close()" class="w3-bar-item w3-button">Blog</a>
@@ -101,11 +117,11 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="w3-center w3-teal w3-padding-64">
-        <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <footer class="w3-center w3-white w3-padding-64">
+        <a href="#home" class="w3-button w3-teal"><i class="fa fa-arrow-up w3-margin-right"></i>Ir a inicio</a>
         <div class="w3-xxlarge w3-section">
-            <i class='bx bxl-facebook'></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class='bx bxl-facebook w3-hover-opacity w3-text-teal'></i>
+            <i class="fa fa-instagram w3-hover-opacity w3-text-teal"></i>
             <!-- <i class="fa fa-whatsapp w3-hover-opacity"></i>
             <i class="fa fa-youtube w3-hover-opacity"></i> -->
         </div>
@@ -140,6 +156,56 @@
         function w3_close() {
             mySidebar.style.display = "none";
         }
+
+
+
+        //Slide
+        // var slideIndex = 1;
+        // showDivs(slideIndex);
+
+        // function plusDivs(n) {
+        //     showDivs(slideIndex += n);
+        // }
+
+        // function currentDiv(n) {
+        //     showDivs(slideIndex = n);
+        // }
+
+        // function showDivs(n) {
+        //     var i;
+        //     var x = document.getElementsByClassName("mySlides");
+        //     var dots = document.getElementsByClassName("demo");
+        //     if (n > x.length) { slideIndex = 1 }
+        //     if (n < 1) { slideIndex = x.length }
+        //     for (i = 0; i < x.length; i++) {
+        //         x[i].style.display = "none";
+        //     }
+        //     for (i = 0; i < dots.length; i++) {
+        //         dots[i].className = dots[i].className.replace(" w3-white", "");
+        //     }
+        //     x[slideIndex - 1].style.display = "block";
+        //     dots[slideIndex - 1].className += " w3-white";
+        // }
+
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+        showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+        }       
+
+
     </script>
 
 </body>
