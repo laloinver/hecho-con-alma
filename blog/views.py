@@ -14,9 +14,9 @@ def post_list(request):
     if search_post:
         # posts = Post.objects.filter(title__icontains=search_post)
         # posts = Post.objects.filter(category__name__icontains=search_post)
-        posts = Post.objects.filter(Q(title__icontains=search_post)|Q(category__name__icontains=search_post))
+        posts = Post.objects.filter(Q(title__icontains=search_post)|Q(category__name__icontains=search_post)).order_by('-created_at')
     else:
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('-created_at')
 
     print(posts.query)
 
